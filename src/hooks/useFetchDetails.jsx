@@ -5,6 +5,7 @@ const useFetchDetail = (endpoint) => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
 
+
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -13,6 +14,7 @@ const useFetchDetail = (endpoint) => {
       setData(response.data);
       // console.log(response);
     } catch (error) {
+      
       console.error("error", error);
     }
   };

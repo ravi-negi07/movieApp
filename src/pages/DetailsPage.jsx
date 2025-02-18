@@ -15,13 +15,11 @@ const DetailsPage = () => {
   );
 
   const { data: similarData } = useFetch(
-    `  /${params?.explore}/${params?.id}/similar`
+    `/${params?.explore}/${params?.id}/similar`
   );
 
-  console.log("similaardata", similarData);
-
   const { data: recomendationData } = useFetch(
-    `/${params?.explore}/${params?.id}/ recommendations`
+    `/${params?.explore}/${params?.id}/recommendations`
   );
   const duration = data?.runtime
     ? `${Math.floor(data.runtime / 60)}h ${data.runtime % 60}m`
@@ -32,8 +30,6 @@ const DetailsPage = () => {
       ?.filter((el) => el.job.toLowerCase() === "writer")
       .map((el) => el?.name)
       .join(", ") || "N/A";
-
-  console.log(writer);
 
   return (
     <div>
@@ -48,11 +44,11 @@ const DetailsPage = () => {
         <div className="w-full h-full top-0 absolute bg-gradient-to-t from-neutral-900/90 to-transparent "></div>
       </div>
       <div className="container mx-auto px-4 py-16 gap-5 lg:gap-10 flex-col lg:flex-row lg:py-0 flex">
-        <div className="lg:-mt-28 lg:mx-0 relative mx-auto gap-4 w-fit m-w-60">
+        <div className="lg:-mt-28 lg:mx-0 relative mx-auto gap-4 w-full m-w-60">
           <img
             src={imageURL + data?.poster_path}
             alt=""
-            className="h-80 w-60 object-cover rounded"
+            className="h-80 w-80 object-contain rounded"
           />
         </div>
 
